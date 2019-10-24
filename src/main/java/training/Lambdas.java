@@ -1,5 +1,6 @@
 package training;
 
+import java.time.LocalDate;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -20,12 +21,11 @@ public class Lambdas {
     Supplier
      */
     public Supplier<Integer> getASupplierThatProvidesTheCurrentYear() {
-        // TODO
-        return null;
+        return () -> LocalDate.now().getYear();
     }
 
     public void printCurrentYear() {
-        // TODO
+        System.out.println(this.getASupplierThatProvidesTheCurrentYear().get());
     }
 
 
@@ -33,12 +33,11 @@ public class Lambdas {
     Consumer
      */
     public Consumer<String> getAConsumerThatPrintsAString() {
-        // TODO
-        return null;
+        return System.out::println;
     }
 
     public void printValue(final String value) {
-        // TODO
+        this.getAConsumerThatPrintsAString().accept(value);
     }
 
 
@@ -46,12 +45,11 @@ public class Lambdas {
     Function
      */
     public Function<String, Integer> getAFunctionThatCountsTheNumberOfCharactersOfAString() {
-        // TODO
-        return null;
+        return String::length;
     }
 
     public void printNumberOfCharacters(final String myString) {
-        // TODO
+        System.out.println(this.getAFunctionThatCountsTheNumberOfCharactersOfAString().apply(myString));
     }
 
 
@@ -59,12 +57,11 @@ public class Lambdas {
     Predicate
      */
     public Predicate<Integer> getAPredicateThatDetectsAnEvenNumber() {
-        // TODO
-        return null;
+        return number -> number % 2 == 0;
     }
 
     public void printWhetherANumberIsEvenOrNot(final Integer number) {
-        // TODO
+        System.out.println(this.getAPredicateThatDetectsAnEvenNumber().test(number));
     }
 
 
@@ -72,11 +69,10 @@ public class Lambdas {
     UnaryOperator
      */
     public UnaryOperator<String> getAUnaryOperatorThatTransformsAStringToUpperCase() {
-        // TODO
-        return null;
+        return String::toUpperCase;
     }
 
     public void printAStringToUpperCase(final String myString) {
-        // TODO
+        System.out.println(this.getAUnaryOperatorThatTransformsAStringToUpperCase().apply(myString));
     }
 }
