@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "name": "Star Wars",
+  "year": 1977,
+  "director": "George Lucas",
+  "characters": [
+    "Luke Skywalker",
+    "Leia",
+    "Han Solo"
+  ]
+}

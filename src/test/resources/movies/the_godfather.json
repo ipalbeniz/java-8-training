@@ -1,0 +1,11 @@
+{
+  "id": 3,
+  "name": "The Godfather",
+  "year": 1972,
+  "director": "Francis Ford Coppola",
+  "characters": [
+    "Vito Corleone",
+    "Michael Corleone",
+    "Sonny Corleone"
+  ]
+}
