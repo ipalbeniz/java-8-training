@@ -1,0 +1,11 @@
+{
+  "id": 2,
+  "name": "Pulp Fiction",
+  "year": 1994,
+  "director": "Quentin Tarantino",
+  "characters": [
+    "Mia",
+    "Vincent",
+    "Jules"
+  ]
+}

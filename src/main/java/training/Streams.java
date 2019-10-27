@@ -1,6 +1,10 @@
 package training;
 
+import training.model.Movie;
+
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Stream;
 
 /**
@@ -67,6 +71,11 @@ public class Streams {
         return false;
     }
 
+    public List<String> getTheNamesInUpperCase(final List<String> names) {
+        // TODO
+        return null;
+    }
+
     public List<String> getTheDistinctNames(final List<String> names) {
         // TODO
         return null;
@@ -85,5 +94,30 @@ public class Streams {
     public long countTheNamesThatStartWithTheLetterD(final List<String> names) {
         // TODO
         return 0;
+    }
+
+    public Set<String> getAllTheCharactersFromTheMovies(final List<Movie> movies) {
+        // TODO
+        return null;
+    }
+
+    public Map<Integer, String> getTheMovieNamesById(final List<Movie> movies) {
+        // TODO
+        return null;
+    }
+
+    public Map<String, List<Movie>> getTheMoviesOfEachDirector(final List<Movie> movies) {
+        // TODO
+        return null;
+    }
+
+    public Map<String, Movie> getTheMovieOfEachCharacter(final List<Movie> movies) {
+        // TODO
+        return null;
+    }
+
+    public Integer getTheYearWithMoreMovies(final List<Movie> movies) {
+        // TODO
+        return null;
     }
 }

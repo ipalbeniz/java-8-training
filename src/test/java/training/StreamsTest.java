@@ -1,14 +1,23 @@
 package training;
 
+import com.google.common.collect.ImmutableMap;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.SystemOutRule;
+import training.model.Movie;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
+import static training.MovieMother.theGodfather;
+import static training.MovieMother.closeEncountersOfTheThirdKind;
+import static training.MovieMother.etTheExtraTerrestrial;
+import static training.MovieMother.pulpFiction;
+import static training.MovieMother.starWars;
 
 public class StreamsTest {
 
@@ -81,6 +90,7 @@ public class StreamsTest {
     public void it_should_get_the_first_even_number() {
 
         assertThat(streams.getTheFirstEvenNumberOrNullIfNotFound(asList(1, 3, 7, 4, 9, 2))).isEqualTo(4);
+        assertThat(streams.getTheFirstEvenNumberOrNullIfNotFound(asList(1, 3, 7, 5, 9))).isEqualTo(null);
     }
 
     @Test
@@ -94,6 +104,13 @@ public class StreamsTest {
 
         assertThat(streams.checkIfAllTheNumbersAreEven(asList(2, 6, 4))).isTrue();
         assertThat(streams.checkIfAllTheNumbersAreEven(asList(2, 3, 6, 4))).isFalse();
+    }
+
+    @Test
+    public void it_should_get_the_names_in_uppercase() {
+
+        assertThat(streams.getTheNamesInUpperCase(asList("Vito Corleone", "Michael Corleone", "Sonny Corleone")))
+                .containsExactly("VITO CORLEONE", "MICHAEL CORLEONE", "SONNY CORLEONE");
     }
 
     @Test
@@ -121,5 +138,64 @@ public class StreamsTest {
     public void it_should_count_the_names_that_start_with_the_letter_D() {
 
         assertThat(streams.countTheNamesThatStartWithTheLetterD(asList("Dave", "HAL 9000"))).isEqualTo(1);
+    }
+
+    @Test
+    public void it_should_get_all_the_characters_from_the_movies() {
+
+        final List<Movie> movies = asList(starWars(), pulpFiction());
+
+        assertThat(streams.getAllTheCharactersFromTheMovies(movies))
+                .containsExactlyInAnyOrder("Luke Skywalker", "Leia", "Han Solo", "Mia", "Vincent", "Jules");
+    }
+
+    @Test
+    public void it_should_get_the_movie_names_by_id() {
+
+        final List<Movie> movies = asList(starWars(), theGodfather(), pulpFiction());
+
+        assertThat(streams.getTheMovieNamesById(movies))
+                .containsExactlyInAnyOrderEntriesOf(ImmutableMap.of(
+                        1, "Star Wars",
+                        2, "Pulp Fiction",
+                        3, "The Godfather"
+                ));
+    }
+
+    @Test
+    public void it_should_get_the_movies_of_each_director() {
+
+        final List<Movie> movies = asList(starWars(), theGodfather(), etTheExtraTerrestrial(), closeEncountersOfTheThirdKind());
+
+        assertThat(streams.getTheMoviesOfEachDirector(movies))
+                .containsExactlyInAnyOrderEntriesOf(ImmutableMap.of(
+                        "George Lucas", singletonList(starWars()),
+                        "Steven Spielberg", asList(etTheExtraTerrestrial(), closeEncountersOfTheThirdKind()),
+                        "Francis Ford Coppola", singletonList(theGodfather())
+                ));
+    }
+
+    @Test
+    public void it_should_get_the_movie_of_each_character() {
+
+        final List<Movie> movies = asList(pulpFiction(), etTheExtraTerrestrial());
+
+        assertThat(streams.getTheMovieOfEachCharacter(movies))
+                .containsExactlyInAnyOrderEntriesOf(ImmutableMap.<String, Movie>builder()
+                        .put("Mia", pulpFiction())
+                        .put("Vincent", pulpFiction())
+                        .put("Jules", pulpFiction())
+                        .put("Elliott", etTheExtraTerrestrial())
+                        .put("Gertie", etTheExtraTerrestrial())
+                        .put("E.T.", etTheExtraTerrestrial())
+                        .build());
+    }
+
+    @Test
+    public void it_should_get_the_year_with_more_movies() {
+
+        final List<Movie> movies = asList(starWars(), pulpFiction(), theGodfather(), closeEncountersOfTheThirdKind(), etTheExtraTerrestrial());
+
+        assertThat(streams.getTheYearWithMoreMovies(movies)).isEqualTo(1977);
     }
 }
