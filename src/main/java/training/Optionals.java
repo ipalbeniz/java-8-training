@@ -5,6 +5,7 @@ import training.model.Message;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 /**
  * Welcome to the optionals training
@@ -17,57 +18,55 @@ import java.util.function.Supplier;
 public class Optionals {
 
     public Optional<String> getAnEmptyOptional() {
-        // TODO
-        return null;
+        return Optional.empty();
     }
 
     public Optional<String> getAnOptionalOfANullableMessage(final String message) {
-        // TODO
-        return null;
+        return Optional.ofNullable(message);
     }
 
     public boolean checkIfTheMessageProvidedHasValue(final Supplier<Optional<String>> messageSupplier) {
-        // TODO
-        return false;
+        return messageSupplier.get().isPresent();
     }
 
     public String getTheMessageProvidedOrNullIfItHasNoValue(final Supplier<Optional<String>> messageSupplier) {
-        // TODO
-        return null;
+        return messageSupplier.get().orElse(null);
     }
 
     public void printTheMessageProvidedOnlyIfItHasValue(final Supplier<Optional<String>> messageSupplier) {
-        // TODO
+        messageSupplier.get().ifPresent(System.out::println);
     }
 
     public String getTheMessageProvidedOrTheDefaultMessageIfItHasNoValue(final Supplier<Optional<String>> messageSupplier,
                                                                          final Supplier<String> defaultMessageSupplier) {
-        // TODO
-        return null;
+        return messageSupplier.get().orElseGet(defaultMessageSupplier);
     }
 
     public String getTheMessageProvidedOrThrowIllegalArgumentExceptionIfItHasNoValue(final Supplier<Optional<String>> messageSupplier) {
-        // TODO
-        return null;
+        return messageSupplier.get().orElseThrow(IllegalArgumentException::new);
     }
 
     public Optional<String> getTheMessageProvidedInUpperCase(final Supplier<Optional<String>> messageSupplier) {
-        // TODO
-        return null;
+        return messageSupplier.get().map(String::toUpperCase);
     }
 
     public Optional<Integer> getTheNumberProvidedOnlyIfItIsAnEvenNumber(final Supplier<Optional<Integer>> numberSupplier) {
-        // TODO
-        return null;
+        return numberSupplier.get().filter(integer -> integer % 2 == 0);
     }
 
     public Optional<String> getTheMessageContentInUpperCase(final Supplier<Optional<Message>> messageSupplier) {
-        // TODO
-        return null;
+
+        return messageSupplier.get()
+                .flatMap(Message::getContent)
+                .map(String::toUpperCase);
     }
 
     public List<String> getTheMessageContentsThatHaveValue(final Supplier<List<Message>> messagesSupplier) {
-        // TODO
-        return null;
+
+        return messagesSupplier.get().stream()
+                .map(Message::getContent)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .collect(Collectors.toList());
     }
 }
