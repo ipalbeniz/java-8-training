@@ -117,7 +117,7 @@ public class StreamsTest {
     public void it_should_get_the_distinct_names() {
 
         assertThat(streams.getTheDistinctNames(asList("Mia", "Vincent", "Jules", "Vincent", "Mia")))
-                .contains("Mia", "Vincent", "Jules");
+                .containsExactly("Mia", "Vincent", "Jules");
     }
 
     @Test
