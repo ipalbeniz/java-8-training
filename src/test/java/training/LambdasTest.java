@@ -101,4 +101,16 @@ public class LambdasTest {
 
         assertEquals("HELLO WORLD!", systemOutRule.getLog().trim());
     }
+
+    @Test
+    public void it_should_get_a_calculator_that_sums_two_numbers() {
+
+        assertEquals(10, lambdas.getACalculatorThatSumsTwoNumbers().calculate(3, 7));
+    }
+
+    @Test
+    public void it_should_get_a_calculator_that_multiplies_two_numbers() {
+
+        assertEquals(21, lambdas.getACalculatorThatMultipliesTwoNumbers().calculate(3, 7));
+    }
 }

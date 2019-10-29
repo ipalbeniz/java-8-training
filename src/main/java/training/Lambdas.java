@@ -79,4 +79,23 @@ public class Lambdas {
     public void printAStringToUpperCase(final String myString) {
         // TODO
     }
+
+
+    /*
+    Custom Functional Interface
+     */
+    public Calculator getACalculatorThatSumsTwoNumbers() {
+        // TODO
+        return null;
+    }
+
+    public Calculator getACalculatorThatMultipliesTwoNumbers() {
+        // TODO
+        return null;
+    }
+
+    @FunctionalInterface
+    public interface Calculator {
+        int calculate(int x, int y);
+    }
 }
