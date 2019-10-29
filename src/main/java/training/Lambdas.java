@@ -81,13 +81,11 @@ public class Lambdas {
     Custom Functional Interface
      */
     public Calculator getACalculatorThatSumsTwoNumbers() {
-        // TODO
-        return null;
+        return Integer::sum;
     }
 
     public Calculator getACalculatorThatMultipliesTwoNumbers() {
-        // TODO
-        return null;
+        return (x, y) -> x * y;
     }
 
     @FunctionalInterface
