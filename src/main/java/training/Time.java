@@ -6,9 +6,14 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Month;
 import java.time.Period;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Welcome to the time api training
@@ -24,155 +29,130 @@ public class Time {
     LocalDate
      */
     public LocalDate getCurrentDate() {
-        // TODO
-        return null;
+        return LocalDate.now();
     }
 
     public LocalDate getCurrentDatePlus3Days() {
-        // TODO
-        return null;
+        return LocalDate.now().plusDays(3);
     }
 
     public int getCurrentYear() {
-        // TODO
-        return 0;
+        return LocalDate.now().getYear();
     }
 
     public LocalDate getTetrisReleaseDate() {
-        // TODO
-        return null;
+        return LocalDate.of(1984, Month.JUNE, 6);
     }
 
     public LocalDate parseIsoDate(final String isoDate) {
-        // TODO
-        return null;
+        return LocalDate.parse(isoDate);
     }
 
     public LocalDate getCurrentDateUsingAClock(final Clock clock) {
-        // TODO
-        return null;
+        return LocalDate.now(clock);
     }
 
     /*
     LocalTime
      */
     public LocalTime getCurrentTime() {
-        // TODO
-        return null;
+        return LocalTime.now();
     }
 
     public LocalTime parseIsoTime(final String isoTime) {
-        // TODO
-        return null;
+        return LocalTime.parse(isoTime);
     }
 
     /*
     LocalDateTime
      */
     public LocalDateTime getCurrentDateTime() {
-        // TODO
-        return null;
+        return LocalDateTime.now();
     }
 
     public LocalDateTime parseIsoDateTime(final String isoDateTime) {
-        // TODO
-        return null;
+        return LocalDateTime.parse(isoDateTime);
     }
 
     public String formatInIsoLocalDateTime(final LocalDateTime localDateTime) {
-        // TODO
-        return null;
+        return DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(localDateTime);
     }
 
     /*
     Before you continue with ZonedDateTime, I encourage you to watch this video: https://www.youtube.com/watch?v=-5wpm-gesOY
      */
     public ZonedDateTime getCurrentZonedDateTimeInSystemTimezone() {
-        // TODO
-        return null;
+        return ZonedDateTime.now();
     }
 
     public ZonedDateTime getCurrentZonedDateTimeInUTC() {
-        // TODO
-        return null;
+        return ZonedDateTime.now(ZoneOffset.UTC);
     }
 
     public ZonedDateTime getCurrentZonedDateTimeInMoscow() {
-        // TODO
-        return null;
+        return ZonedDateTime.now(ZoneId.of("Europe/Moscow"));
     }
 
     public LocalDateTime getCurrentLocalDateTimeInMoscow() {
-        // TODO
-        return null;
+        return this.getCurrentZonedDateTimeInMoscow().toLocalDateTime();
     }
 
     public ZonedDateTime convertToZonedDateTimeInNewYork(final ZonedDateTime dateTimeInMoscow) {
-        // TODO
-        return null;
+        return dateTimeInMoscow.withZoneSameInstant(ZoneId.of("America/New_York"));
     }
 
     public long getSecondsBetweenTheEpochTimeAndADateTime(final ZonedDateTime dateTime) {
-        // TODO
-        return 0;
+        return dateTime.toEpochSecond();
     }
 
     public Set<String> getAllTheAvailableZoneIdsFromEurope() {
-        // TODO
-        return null;
+        return ZoneId.getAvailableZoneIds().stream()
+                .filter(zoneId -> zoneId.startsWith("Europe/"))
+                .collect(Collectors.toSet());
     }
 
     /*
     Instant
      */
     public Instant getCurrentInstant() {
-        // TODO
-        return null;
+        return Instant.now();
     }
 
-    public Instant convertSecondsFromEpochTimeToAnInstant(final long secondsFromEpochTime) {
-        // TODO
-        return null;
+    public Instant convertSecondsFromEpochTimeToAnInstant(long secondsFromEpochTime) {
+        return Instant.ofEpochSecond(secondsFromEpochTime);
     }
 
-    public ZonedDateTime convertInstantToZonedDateTimeInMoscow(final Instant instant) {
-        // TODO
-        return null;
+    public ZonedDateTime convertInstantToZonedDateTimeInMoscow(Instant instant) {
+        return instant.atZone(ZoneId.of("Europe/Moscow"));
     }
 
     public long getSecondsBetweenTheEpochTimeAndAnInstant(final Instant instant) {
-        // TODO
-        return 0;
+        return instant.getEpochSecond();
     }
 
     /*
     Period
      */
-    public Period getPeriodOfMonthsAndDays(final int months, final long days) {
-        // TODO
-        return null;
+    public Period getPeriodOfMonthsAndDays(int months, long days) {
+        return Period.ofMonths(months).plusDays(days);
     }
 
     public int getDaysBetweenTwoLocalDates(final LocalDate firstDate, final LocalDate lastDate) {
-        // TODO
-        return 0;
+        return Period.between(firstDate, lastDate).getDays();
     }
 
-    public LocalDateTime getADateTimePlusSomePeriod(final LocalDateTime dateTime, final Period periodToAdd) {
-        // TODO
-        return null;
+    public LocalDateTime getADateTimePlusSomePeriod(LocalDateTime dateTime, Period periodToAdd) {
+        return dateTime.plus(periodToAdd);
     }
 
     /*
     Duration
      */
-    public Duration getDurationOfHoursAndMinutes(final long hours, final long minutes) {
-        // TODO
-        return null;
+    public Duration getDurationOfHoursAndMinutes(long hours, long minutes) {
+        return Duration.ofHours(hours).plusMinutes(minutes);
     }
 
     public long getHoursBetweenTwoLocalDateTimes(final LocalDateTime firstDateTime, final LocalDateTime lastDateTime) {
-        // TODO
-        return 0;
+        return Duration.between(firstDateTime, lastDateTime).toHours();
     }
 }
