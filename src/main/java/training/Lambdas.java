@@ -81,13 +81,11 @@ public class Lambdas {
     Runnable
      */
     public Runnable getARunnableThatPrintsHelloWorld() {
-        // TODO
-        return null;
+        return () -> System.out.println("Hello World");
     }
 
     public Thread getAThreadThatPrintsHelloWorld() {
-        // TODO
-        return null;
+        return new Thread(this.getARunnableThatPrintsHelloWorld());
     }
 
 
