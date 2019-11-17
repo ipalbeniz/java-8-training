@@ -4,6 +4,7 @@ import training.model.Movie;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -96,7 +97,17 @@ public class Streams {
         return 0;
     }
 
+    public Optional<Movie> getTheOldestMovie(final List<Movie> movies) {
+        // TODO
+        return null;
+    }
+
     public Set<String> getAllTheCharactersFromTheMovies(final List<Movie> movies) {
+        // TODO
+        return null;
+    }
+
+    public List<Movie> getTheMoviesFromTheSeventiesOrderedByYearInDescendingOrderAndNameInAscendingOrder(final List<Movie> movies) {
         // TODO
         return null;
     }
