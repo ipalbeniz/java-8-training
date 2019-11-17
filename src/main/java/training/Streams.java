@@ -3,6 +3,7 @@ package training;
 import training.model.Movie;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -10,6 +11,9 @@ import java.util.Set;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import static java.util.Collections.reverseOrder;
+import static java.util.Comparator.comparing;
+import static java.util.Comparator.comparingInt;
 import static java.util.Comparator.comparingLong;
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
@@ -114,8 +118,8 @@ public class Streams {
     }
 
     public Optional<Movie> getTheOldestMovie(final List<Movie> movies) {
-        // TODO
-        return null;
+        return movies.stream()
+                .min(comparingInt(Movie::getYear));
     }
 
     public Set<String> getAllTheCharactersFromTheMovies(final List<Movie> movies) {
@@ -125,8 +129,19 @@ public class Streams {
     }
 
     public List<Movie> getTheMoviesFromTheSeventiesOrderedByYearInDescendingOrderAndNameInAscendingOrder(final List<Movie> movies) {
-        // TODO
-        return null;
+        return movies.stream()
+                .filter(this::isFromTheSeventies)
+                .sorted(this.byYearInDescendingOrder()
+                        .thenComparing(Movie::getName))
+                .collect(toList());
+    }
+
+    private boolean isFromTheSeventies(final Movie movie) {
+        return movie.getYear() >= 1970 && movie.getYear() <= 1979;
+    }
+
+    private Comparator<Movie> byYearInDescendingOrder() {
+        return comparing(Movie::getYear, reverseOrder());
     }
 
     public Map<Integer, String> getTheMovieNamesById(final List<Movie> movies) {
