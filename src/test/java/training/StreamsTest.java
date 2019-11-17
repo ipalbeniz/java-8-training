@@ -21,6 +21,14 @@ import static training.MovieMother.starWars;
 
 public class StreamsTest {
 
+    private static final List<Movie> ALL_THE_MOVIES = asList(
+            pulpFiction(),
+            theGodfather(),
+            closeEncountersOfTheThirdKind(),
+            starWars(),
+            etTheExtraTerrestrial()
+    );
+
     private Streams streams;
 
     @Rule
@@ -141,12 +149,25 @@ public class StreamsTest {
     }
 
     @Test
+    public void it_should_get_the_oldest_movie() {
+
+        assertThat(streams.getTheOldestMovie(ALL_THE_MOVIES)).hasValue(theGodfather());
+    }
+
+    @Test
     public void it_should_get_all_the_characters_from_the_movies() {
 
         final List<Movie> movies = asList(starWars(), pulpFiction());
 
         assertThat(streams.getAllTheCharactersFromTheMovies(movies))
                 .containsExactlyInAnyOrder("Luke Skywalker", "Leia", "Han Solo", "Mia", "Vincent", "Jules");
+    }
+
+    @Test
+    public void it_should_get_the_movies_from_the_seventies_ordered_by_year_descending_and_name_ascending() {
+
+        assertThat(streams.getTheMoviesFromTheSeventiesOrderedByYearInDescendingOrderAndNameInAscendingOrder(ALL_THE_MOVIES))
+                .containsExactly(closeEncountersOfTheThirdKind(), starWars(), theGodfather());
     }
 
     @Test

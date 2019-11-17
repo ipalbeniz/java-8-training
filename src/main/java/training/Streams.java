@@ -5,6 +5,7 @@ import training.model.Movie;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -112,10 +113,20 @@ public class Streams {
                 .count();
     }
 
+    public Optional<Movie> getTheOldestMovie(final List<Movie> movies) {
+        // TODO
+        return null;
+    }
+
     public Set<String> getAllTheCharactersFromTheMovies(final List<Movie> movies) {
         return movies.stream()
                 .flatMap(movie -> movie.getCharacters().stream())
                 .collect(toSet());
+    }
+
+    public List<Movie> getTheMoviesFromTheSeventiesOrderedByYearInDescendingOrderAndNameInAscendingOrder(final List<Movie> movies) {
+        // TODO
+        return null;
     }
 
     public Map<Integer, String> getTheMovieNamesById(final List<Movie> movies) {
