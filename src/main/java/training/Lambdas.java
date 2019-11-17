@@ -78,6 +78,20 @@ public class Lambdas {
 
 
     /*
+    Runnable
+     */
+    public Runnable getARunnableThatPrintsHelloWorld() {
+        // TODO
+        return null;
+    }
+
+    public Thread getAThreadThatPrintsHelloWorld() {
+        // TODO
+        return null;
+    }
+
+
+    /*
     Custom Functional Interface
      */
     public Calculator getACalculatorThatSumsTwoNumbers() {

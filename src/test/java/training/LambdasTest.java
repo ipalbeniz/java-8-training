@@ -7,8 +7,12 @@ import org.junit.contrib.java.lang.system.SystemOutRule;
 
 import java.time.LocalDate;
 
+import static com.google.common.util.concurrent.Uninterruptibles.sleepUninterruptibly;
+import static java.time.Duration.ofMillis;
+import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 
@@ -100,6 +104,24 @@ public class LambdasTest {
         lambdas.printAStringToUpperCase("Hello world!");
 
         assertEquals("HELLO WORLD!", systemOutRule.getLog().trim());
+    }
+
+    @Test
+    public void it_should_get_a_runnable_that_prints_hello_world() {
+
+        lambdas.getARunnableThatPrintsHelloWorld().run();
+
+        assertThat(systemOutRule.getLog().trim().toLowerCase(), containsString("hello world"));
+    }
+
+    @Test
+    public void it_should_get_a_thread_that_prints_hello_world() {
+
+        lambdas.getAThreadThatPrintsHelloWorld().start();
+
+        sleepUninterruptibly(ofMillis(500));
+
+        assertThat(systemOutRule.getLog().trim().toLowerCase(), containsString("hello world"));
     }
 
     @Test
