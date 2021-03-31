@@ -15,7 +15,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <assertj-core.version>3.13.2</assertj-core.version>
-        <guava.version>28.1-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <jackson-databind.version>2.10.0</jackson-databind.version>
         <junit.version>4.12</junit.version>
         <system-rules.version>1.19.0</system-rules.version>
