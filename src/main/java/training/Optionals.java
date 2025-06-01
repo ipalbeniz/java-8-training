@@ -9,10 +9,10 @@ import java.util.function.Supplier;
 /**
  * Welcome to the optionals training
  * <p>
- * Please, implement all the methods and pass all the tests
+ * Please implement all the methods and pass all the tests
  * <p>
- * More info in spanish: https://experto.dev/java-8-optional/
- * More info in english: https://www.baeldung.com/java-optional
+ * More info in Spanish: <a href="https://experto.dev/java-8-optional/">...</a>
+ * More info in English: <a href="https://www.baeldung.com/java-optional">...</a>
  */
 public class Optionals {
 

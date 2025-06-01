@@ -9,12 +9,12 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 /**
- * Welcome to the steams training
+ * Welcome to the streams training
  * <p>
- * Please, implement all the methods and pass all the tests
+ * Please implement all the methods and pass all the tests
  * <p>
- * More info in spanish: https://www.belikesoftware.com/java-8-streams/
- * More info in english: https://www.baeldung.com/java-8-streams
+ * More info in Spanish: <a href="https://www.belikesoftware.com/java-8-streams/">...</a>
+ * More info in English: <a href="https://www.baeldung.com/java-8-streams">...</a>
  */
 public class Streams {
 
