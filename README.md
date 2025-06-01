@@ -1,8 +1,8 @@
 # Intro
-Java 8 training exercises made with love for my team mates
+Java 8 training exercises made with love for my team mates and co-workers.
 
-# How to do the exercises
-Clone this repository, open it with your favourite IDE and implement all the methods from Lambdas, Stream and Optionals classes while passing the unit tests.
+# How to complete the exercises
+Clone this repository, open it with your favourite IDE and implement all the methods from `Lambdas`, `Streams`, `Optionals` and `Time` classes while passing the unit tests.
 
 # Retrospective
-It would be useful to do a retrospective meeting among the co-workers who have done the exercises to discuss the proposed solutions.
+It would be helpful to run a retrospective meeting among the co-workers who have finished the exercises to discuss the proposed solutions.

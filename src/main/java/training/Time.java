@@ -18,10 +18,10 @@ import java.util.stream.Collectors;
 /**
  * Welcome to the time api training
  * <p>
- * Please, implement all the methods and pass all the tests
+ * Please implement all the methods and pass all the tests
  * <p>
- * More info in spanish: https://blog.eddumelendez.me/2016/07/conociendo-la-nueva-date-api-en-java-8-parte-i/
- * More info in english: https://www.baeldung.com/java-8-date-time-intro
+ * More info in Spanish: <a href="https://blog.eddumelendez.me/2016/07/conociendo-la-nueva-date-api-en-java-8-parte-i/">...</a>
+ * More info in English: <a href="https://www.baeldung.com/java-8-date-time-intro">...</a>
  */
 public class Time {
 

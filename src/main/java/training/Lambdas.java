@@ -10,10 +10,10 @@ import java.util.function.UnaryOperator;
 /**
  * Welcome to the lambdas training
  * <p>
- * Please, implement all the methods and pass all the tests
+ * Please implement all the methods and pass all the tests
  * <p>
- * More info in spanish: https://www.adictosaltrabajo.com/2015/12/04/expresiones-lambda-con-java-8/
- * More info in english: https://www.baeldung.com/java-8-functional-interfaces
+ * More info in Spanish: <a href="https://www.adictosaltrabajo.com/2015/12/04/expresiones-lambda-con-java-8/">...</a>
+ * More info in English: <a href="https://www.baeldung.com/java-8-functional-interfaces">...</a>
  */
 public class Lambdas {
 
